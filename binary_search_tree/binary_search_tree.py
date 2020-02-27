@@ -9,11 +9,12 @@ class BinarySearchTree:
         self.value = value
         self.left = None
         self.right = None
-        self.root = None
+        self.queue = Queue()
+        self.stack = Stack()
 
     # Insert the given value into the tree
     def insert(self, value):
-        pass
+        
         # check if tree contains values
             # if not 
                 # insert value
@@ -86,9 +87,33 @@ class BinarySearchTree:
     # Call the function `cb` on the value of each node
     # You may use a recursive or iterative approach
     def for_each(self, cb):
-        pass
+        # call cb on self.value
+        cb(self.value)
+        # if left:
+        if self.left:
+            # call for_each
+            self.left.for_each(cb)
+        # if right:
+        if self.right:
+            self.right.for_each(cb)
+            # call for_each
+        
 
     # DAY 2 Project -----------------------
+
+    # Depth first plan:
+        # use stack
+        # push root
+        # pop it, store in variable
+        # check left/right of variable
+        # push both,
+        # pop top and store var, check lft and rght
+        # rinse and repeat
+    # Breadth first plan:
+        # add root to queue
+        # look right/ left and put in queue
+        # get rid of first in
+        # repeat
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
